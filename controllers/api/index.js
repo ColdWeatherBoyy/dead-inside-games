@@ -3,6 +3,6 @@ const userRoutes = require("./userRoutes");
 const minesweeperHighscoreRoutes = require("./minesweeperHighscoreRoutes");
 
 router.use("/users", userRoutes);
-router.use("/minesweeper", minesweeperHighscoreRoutes);
+router.use("/minesweeper/highscores", minesweeperHighscoreRoutes);
 
 module.exports = router;

@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
 		// const user_id = req.session.user_id;
 		const user_id = 4;
 
-		const score = req.body;
+		const { score } = req.body;
 
 		// checks to make sure score
 		if (!score) {
@@ -19,6 +19,26 @@ router.post("/", async (req, res) => {
 		const newScore = await MinesweeperHighscores.create({ score, user_id });
 
 		res.status(200).json(newScore);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// get route for pulling all highscores (testing)
+router.get("/", async (req, res) => {
+	try {
+		const highscoreData = await MinesweeperHighscores.findAll({
+			attributes: ["score", "created_at", "user_id"],
+			include: [
+				{
+					model: User,
+					attributes: ["username"],
+				},
+			],
+			order: [["score", "DESC"]],
+		});
+
+		res.status(200).json(highscoreData);
 	} catch (err) {
 		res.status(500).json(err);
 	}
