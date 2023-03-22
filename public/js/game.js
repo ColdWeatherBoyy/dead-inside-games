@@ -3,6 +3,10 @@
     // ELEMENTS
     // bomb, number
     // determine position of each
+// LIST OF ELEMENTS FOR SPRITESHEET
+    // blank squares
+    // number squares
+    // bomb squares
 
 // creates application
 let app = new PIXI.Application({ 
