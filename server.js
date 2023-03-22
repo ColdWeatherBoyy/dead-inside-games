@@ -16,7 +16,7 @@ const path = require("path");
 // for routes
 const routes = require("./controllers");
 
-// imports in .env files if needed
+// imports in .env files
 require("dotenv").config();
 
 // sequelize conection
