@@ -2,26 +2,26 @@
 	{
 		"id": 1,
 		"username": "Hat Man",
-		"password": "p@ssw0rd"
+		"password": "P@ssw0rd"
 	},
 	{
 		"id": 2,
 		"username": "Garbage Dumpling",
-		"password": "p@ssw0rd"
+		"password": "P@ssw0rd"
 	},
 	{
 		"id": 3,
 		"username": "Cool Sam",
-		"password": "p@ssw0rd"
+		"password": "P@ssw0rd"
 	},
 	{
 		"id": 4,
 		"username": "Cranston",
-		"password": "p@ssw0rd"
+		"password": "P@ssw0rd"
 	},
 	{
 		"id": 5,
 		"username": "Carl",
-		"password": "p@ssw0rd"
+		"password": "P@ssw0rd"
 	}
 ]

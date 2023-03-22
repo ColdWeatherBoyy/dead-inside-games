@@ -44,15 +44,18 @@ router.post("/", async (req, res) => {
 	}
 });
 
+// login route for users
 router.post("/login", async (req, res) => {
 	try {
-		const userData = await User.findone({ where: { username: req.body.username } });
+		const userData = await User.findOne({ where: { username: req.body.username } });
+
 		// checks if userData is found
 		if (!userData) {
 			// add back in when working with site
 			// alert("Username not found, please try again.");
 			return res.status(404).json({ message: "Username not found, please try again." });
 		}
+
 		const validPassword = userData.checkPassword(req.body.password);
 
 		if (!validPassword) {
