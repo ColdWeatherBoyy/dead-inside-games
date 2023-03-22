@@ -44,4 +44,36 @@ router.post("/", async (req, res) => {
 	}
 });
 
+router.post("/login", async (req, res) => {
+	try {
+		const userData = await User.findone({ where: { username: req.body.username } });
+
+		// checks if userData is found
+		if (!userData) {
+			// add back in when working with site
+			// alert("Username not found, please try again.");
+			return res.status(404).json({ message: "Username not found, please try again." });
+		}
+
+		const validPassword = userData.checkPassword(req.body.password);
+
+		if (!validPassword) {
+			// add back in when working with site
+			// alert("Password does not match, please try again.");
+			return res
+				.status(404)
+				.json({ message: "Password does not match, please try again." });
+		}
+
+		req.session.save(() => {
+			req.session.username = userData.username;
+			req.session.loggedIn = true;
+
+			res.status(200).json({ message: "Logged in and ready to die (inside only)." });
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 module.exports = router;
