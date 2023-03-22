@@ -32,7 +32,7 @@ User.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
-				// reqiures password to have one digit, one lowercase, one uppercase, and be at least 8 charactes long
+				// requires password to have one digit, one lowercase, one uppercase, and be at least 8 charactes long
 				is: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/,
 			},
 		},
