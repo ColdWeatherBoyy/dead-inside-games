@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const { User, MinesweeperHighscores } = require("../models/index.js");
+// add this to all html routes that need to be behind the password wall
+const withAuth = require("../utils/auth");
 
+// generic hello world html route
 router.get("*", async (req, res) => {
 	try {
 		res.render("helloworld", {});
