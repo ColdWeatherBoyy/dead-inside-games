@@ -79,6 +79,19 @@ router.post("/login", async (req, res) => {
 	}
 });
 
+router.post("/logout", async (req, res) => {
+	try {
+		if (req.session.loggedIn) {
+			req.session.destroy();
+			res.status(200).json("You are now logged out. I hope you feel alive again");
+		} else {
+			res.status(200).json("You already weren't logged in!");
+		}
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 // request get all users for testing
 router.get("/", async (req, res) => {
 	const userData = await User.findAll({
