@@ -1,16 +1,33 @@
 <h1>DEAD INSIDE</h1>
-<form>
-  <h1>SIGN UP</h1>
-  <label for="username">USERNAME:</label>
-  <input type="text" id="username" name="username" /><br /><br />
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Login
+    </p>
 
-  <label for="password">PASSWORD:</label>
-  <input type="password" id="password" name="password" /><br /><br />
+  </header>
+  <div class="card-content">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="e.g Alex Smith" />
+      </div>
+    </div>
 
-  <label for="rEtype-password">RETYPE PASSWORD</label>
-  <input type="text" id="retype-password" name="retype-password" /><br /><br />
-
-  <input type="submit" value="SUBMIT" /><br /><br />
-
-  <a href="#">Already a user? Return to Login.</a>
-</form>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input
+          class="input"
+          type="email"
+          placeholder="e.g. alexsmith@gmail.com"
+        />
+      </div>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer>
+</div>
