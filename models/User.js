@@ -6,7 +6,7 @@ const sequelize = require("../config/connection");
 class User extends Model {
 	// method to validate password
 	checkPassword(loginPassword) {
-		return bcrypt.compareSync(loginPassword, this.checkPassword);
+		return bcrypt.compareSync(loginPassword, this.password);
 	}
 }
 
@@ -39,12 +39,14 @@ User.init(
 	},
 	{
 		hooks: {
-			// hashes password before creation
+			// hashes password before creation and lowercases username to make non-case specific
 			beforeCreate: async (newUserData) => {
+				newUserData.username = await newUserData.username.toLowerCase();
 				newUserData.password = await bcrypt.hash(newUserData.password, 10);
 			},
-			// if we ever add an update password, hook for that
+			// if we ever add an update password, hook for that (same for lowercase usernames)
 			beforeUpdate: async (newUserData) => {
+				newUserData.username = await newUserData.username.toLowerCase();
 				newUserData.password = await bcrypt.hash(newUserData.password, 10);
 			},
 		},
