@@ -7,22 +7,37 @@
     // blank squares
     // number squares
     // bomb squares
+// STORE state of the tile
+    // change the state of clicked tiles etc
+
+// Variables
+const tileSize = 40
+const boardSize = 10
 
 // creates application
 let app = new PIXI.Application({ 
-    width: 800, 
-    height: 600,
+    width: (tileSize * boardSize), 
+    height: (tileSize * boardSize),
     backgroundColor: "grey",
 });
 // adds view to dom
 document.body.appendChild(app.view);
-// creates sprite
-let sprite = PIXI.Sprite.from('/images/sample.png');
-// adds sprite image to stage
-app.stage.addChild(sprite);
-// Add a ticker callback to move the sprite back and forth
-let elapsed = 0.0;
-app.ticker.add((delta) => {
-    elapsed += delta;
-    sprite.x = 100.0 + Math.cos(elapsed/50.0) * 100.0;
-});
+
+for (let i = 0; i < (boardSize ** 2); i++) {
+    const tile = PIXI.Sprite.from('/images/tile.png');
+    tile.width = tileSize;
+    tile.height = tileSize;
+    tile.anchor.set(0);
+    tile.x = (i % boardSize) * tileSize;
+    tile.y = Math.floor(i / boardSize) * tileSize;
+    app.stage.addChild(tile);
+}
+
+// Move container to the center
+app.stage.x = app.screen.width / 2;
+app.stage.y = app.screen.height / 2;
+
+// Center bunny sprite in local container coordinates
+app.stage.pivot.x = app.stage.width / 2;
+app.stage.pivot.y = app.stage.height / 2;
+
