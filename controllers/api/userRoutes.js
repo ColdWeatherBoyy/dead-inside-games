@@ -17,6 +17,7 @@ router.post("/", async (req, res) => {
 		// activates current loggedin session
 		req.session.save(() => {
 			req.session.username = newUser.username;
+			req.session.user_id = newUser.id;
 			req.session.loggedIn = true;
 
 			res
@@ -68,6 +69,7 @@ router.post("/login", async (req, res) => {
 
 		req.session.save(() => {
 			req.session.username = userData.username;
+			req.session.user_id = newUser.id;
 			req.session.loggedIn = true;
 
 			res.status(200).json({ message: "Logged in and ready to die (inside only)." });
