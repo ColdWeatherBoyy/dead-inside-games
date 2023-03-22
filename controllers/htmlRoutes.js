@@ -29,6 +29,24 @@ router.get("/minesweeper", async (req, res) => {
 	}
 });
 
+// HTML get route for login page
+router.get("/login", async (req, res) => {
+	try {
+		res.render("login", {});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// HTML get route for signup page
+router.get("/login", async (req, res) => {
+	try {
+		res.render("signup", {});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
 // generic hello world html route (turn into 404 page eventually)
 router.get("*", async (req, res) => {
 	try {
