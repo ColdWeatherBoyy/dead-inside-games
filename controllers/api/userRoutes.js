@@ -47,14 +47,12 @@ router.post("/", async (req, res) => {
 router.post("/login", async (req, res) => {
 	try {
 		const userData = await User.findone({ where: { username: req.body.username } });
-
 		// checks if userData is found
 		if (!userData) {
 			// add back in when working with site
 			// alert("Username not found, please try again.");
 			return res.status(404).json({ message: "Username not found, please try again." });
 		}
-
 		const validPassword = userData.checkPassword(req.body.password);
 
 		if (!validPassword) {
@@ -74,6 +72,17 @@ router.post("/login", async (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
+});
+
+// request get all users for testing
+router.get("/", async (req, res) => {
+	const userData = await User.findAll({
+		attributes: ["username", "password", "id"],
+	});
+
+	const users = userData.map((user) => user.get({ plain: true }));
+
+	res.status(200).json(users);
 });
 
 module.exports = router;
