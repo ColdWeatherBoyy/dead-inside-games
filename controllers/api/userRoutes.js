@@ -82,7 +82,7 @@ router.post("/login", async (req, res) => {
 // request get all users for testing
 router.get("/", async (req, res) => {
 	const userData = await User.findAll({
-		attributes: ["username", "password", "id"],
+		attributes: { exclude: ["password"] },
 	});
 
 	const users = userData.map((user) => user.get({ plain: true }));
