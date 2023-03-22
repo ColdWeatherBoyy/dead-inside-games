@@ -1,20 +1,30 @@
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Dead Inside Games</title>
-		{{! link to Bulma CDN }}
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
-		/>
-		{{!-- PIXI CDN --}}
-		<script src="https://pixijs.download/release/pixi.js"></script>
-		
-	</head>
-	<body>
-		{{{body}}}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dead Inside Games</title>
+    {{! link to Bulma CDN }}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+	  {{!-- PIXI CDN --}}
+	  <script src="https://pixijs.download/release/pixi.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Dead Inside Games</h1>
+    </header>
+    <nav>
+      <a href="/">Main Page</a>
+      {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">Logout</button>
+      {{else}}
+        <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+    {{{body}}}
 	<script src="/js/game.js"></script>
-	</body>
+  </body>
 </html>
