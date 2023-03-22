@@ -14,23 +14,28 @@
 const tileSize = 40
 const boardSize = 10
 
-// creates application
+// Creates application
 let app = new PIXI.Application({ 
     width: (tileSize * boardSize), 
     height: (tileSize * boardSize),
     backgroundColor: "grey",
 });
-// adds view to dom
+// Adds view to dom
 document.body.appendChild(app.view);
 
+// Sets up board
 for (let i = 0; i < (boardSize ** 2); i++) {
-    const tile = PIXI.Sprite.from('/images/tile.png');
+    const texture = PIXI.Texture.from('/images/tile.png');
+    const tile = new PIXI.Sprite(texture);
     tile.width = tileSize;
     tile.height = tileSize;
     tile.anchor.set(0);
     tile.x = (i % boardSize) * tileSize;
     tile.y = Math.floor(i / boardSize) * tileSize;
     app.stage.addChild(tile);
+    tile.interactive = true;
+    tile.buttonMode = true;
+    tile.on('pointertap', tileClick)
 }
 
 // Move container to the center
@@ -41,3 +46,7 @@ app.stage.y = app.screen.height / 2;
 app.stage.pivot.x = app.stage.width / 2;
 app.stage.pivot.y = app.stage.height / 2;
 
+// Click functions
+function tileClick() {
+    this.texture = PIXI.Texture.from('/images/tile-clicked.png')
+}
