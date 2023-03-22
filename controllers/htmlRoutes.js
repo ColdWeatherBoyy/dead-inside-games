@@ -29,13 +29,44 @@ router.get("/minesweeper", async (req, res) => {
 	}
 });
 
-// generic hello world html route (turn into 404 page eventually)
-router.get("*", async (req, res) => {
+// HTML get route for login page
+router.get("/login", async (req, res) => {
 	try {
-		res.render("helloworld", {});
+		res.render("login", {});
 	} catch (err) {
 		res.status(500).json(err);
 	}
 });
+
+// HTML get route for signup page
+router.get("/signup", async (req, res) => {
+	try {
+		res.render("signup", {});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// 404 page
+router.get("*", async (req, res) => {
+	try {
+		const errorImage = { imageURL: "/images/404_Image.png" };
+
+		// const image = errorImage.get({ plain: true });
+
+		res.render("errormessage", { errorImage });
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// generic hello world html route (turn into 404 page eventually)
+// router.get("*", async (req, res) => {
+// 	try {
+// 		res.render("helloworld", {});
+// 	} catch (err) {
+// 		res.status(500).json(err);
+// 	}
+// });
 
 module.exports = router;
