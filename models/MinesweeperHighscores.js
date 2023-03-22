@@ -34,3 +34,5 @@ MinesweeperHighscores.init(
 		modelName: "msHighscores",
 	}
 );
+
+module.exports = MinesweeperHighscores;
