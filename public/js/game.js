@@ -86,25 +86,46 @@ function tileClick() {
         this.texture = PIXI.Texture.from(`/images/tile-${numAdjMines}.png`);
     } else if (numAdjMines === 0) {
         this.texture = PIXI.Texture.from('/images/tile-clicked.png')
-        console.log(getAdjacentTiles(this.index))
-        // Reveal all adjacent cells as they do not have a mine
-        // for (var i=getAdjacentTiles(this.index); i<=getAdjacentTiles((this.index).length); i++) {
-            for (let x = 0; x < tiles.length; x++) {
-                console.log(tiles[x].index)
-                console.log(this.index)
-                if (tiles[x].index === this.index) {
-                    tiles[x].clicked = true
-                    tiles[x].texture = PIXI.Texture.from('/images/tile-clicked.png')
-                    console.log(tiles[x].texture)
-                }
-            }
-            // //Recursive Call
-            // if (grid.rows[i].cells[j].innerHTML=="") clickCell(grid.rows[i].cells[j]);
+        const toVisit = [this.index];
+        const seen = new Set();
 
-            // if tile associated with index is not a mine then reveal tile
-            // match this.index
-        console.log(tiles)
-    console.log(this)
+        while (toVisit.length) {
+            const current = toVisit.pop();
+            seen.add(current);
+            const neighbors = getAdjacentTiles(current);
+            for (let i = 0; i < neighbors.length; i++) {
+
+                // reveal this neighbor
+                const neighbor = tiles[neighbors[i]];
+                neighbor.clicked = true;
+                const numAdjMines = countAdjacentMines(neighbor.index);
+                if (numAdjMines) {
+                    neighbor.texture = PIXI.Texture.from(`/images/tile-${numAdjMines}.png`);
+                } else {
+                    neighbor.texture = PIXI.Texture.from('/images/tile-clicked.png');
+                    // if neighbor is zero-tile AND not in seen, push onto toVisit
+                    if (!seen.has(neighbor.index)) {
+                        toVisit.push(neighbor.index);
+                    }
+                }
+
+
+            }
+        }
+    //     console.log(getAdjacentTiles(this.index))
+    //     for (var i=getAdjacentTiles(this.index); i<=getAdjacentTiles((this.index).length); i++) {
+    //         for (let x = 0; x < tiles.length; x++) {
+    //             console.log(tiles[x].index)
+    //             console.log(this.index)
+    //             if (tiles[x].index === this.index) {
+    //                 tiles[x].clicked = true
+    //                 tiles[x].texture = PIXI.Texture.from('/images/tile-clicked.png')
+    //                 console.log(tiles[x].texture)
+    //             }
+    //         }
+    //     }
+    //     console.log(tiles)
+    // console.log(this)
     }
 }
 
