@@ -134,3 +134,5 @@ function getBottomRight(n) {
     if (tiles[n + 11].mine) return 1;
     else return 0;
 }
+
+// Right click to flag
