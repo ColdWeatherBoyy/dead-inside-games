@@ -1,0 +1,33 @@
+.navbar {
+  background-color: black;
+  color: white;
+}
+
+.navbar-item img {
+  max-height: 3rem;
+  height: 30vh !important;
+}
+
+form {
+  width: 65vw;
+  text-align: center;
+  flex-direction: column;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-header-title {
+  justify-content: center;
+}
+
+.control {
+  justify-content: center;
+}
+
+.field {
+  justify-content: center;
+}
