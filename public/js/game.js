@@ -29,6 +29,7 @@ let app = new PIXI.Application({
 // Adds view to dom
 document.body.appendChild(app.view);
 
+
 // Sets up board
 for (let i = 0; i < (boardSize ** 2); i++) {
     const texture = PIXI.Texture.from('/images/tile.png');
@@ -41,12 +42,14 @@ for (let i = 0; i < (boardSize ** 2); i++) {
     app.stage.addChild(tile);
     tile.interactive = true;
     tile.buttonMode = true;
-    tile.on('pointertap', tileClick)
+    tile.on('pointertap', tileClick);
+    tile.on('rightdown', tileRightClick);
     app.stage.children[i].mine = false;
     app.stage.children[i].index = i;
 }
 tiles = app.stage.children;
 
+// For later - change # of mines to be dynamic 
 const numberOfMines = 10;
 for (let i = 0; i < numberOfMines; i++) {
     const randomIndex = Math.floor(Math.random() * 100);
@@ -76,6 +79,11 @@ function tileClick() {
     } else if (numAdjMines > 0) {
         this.texture = PIXI.Texture.from(`/images/tile-${numAdjMines}.png`);
     }
+}
+
+// Adds flag on right click 
+function tileRightClick() {
+        this.texture = PIXI.Texture.from(`/images/tile-flag.png`)
 }
 
 // Adjacent tiles functions to check for mines
