@@ -53,17 +53,17 @@ tiles = app.stage.children;
 
 
 // For later - change # of mines to be dynamic 
-let bombArray = []
+// let bombArray = []
 const numberOfMines = 10;
 for (let i = 0; i < numberOfMines; i++) {
     const randomIndex = Math.floor(Math.random() * 100);
     tiles[randomIndex].mine = true;
     bombArray.push(tiles[randomIndex])
 }
-console.log(bombArray)
-tiles.filter(object => bombArray.includes)
-const nonBombArray = tiles.filter(item => !bombArray.some(otherItem => otherItem.index === item.index));
-console.log(nonBombArray)
+// console.log(bombArray)
+// tiles.filter(object => bombArray.includes)
+// const nonBombArray = tiles.filter(item => !bombArray.some(otherItem => otherItem.index === item.index));
+// console.log(nonBombArray)
 
 // console.log(tiles.map((tile, index) => `tile ${index} bomb ${tile.bomb}`));
 
@@ -112,20 +112,6 @@ function tileClick() {
 
             }
         }
-    //     console.log(getAdjacentTiles(this.index))
-    //     for (var i=getAdjacentTiles(this.index); i<=getAdjacentTiles((this.index).length); i++) {
-    //         for (let x = 0; x < tiles.length; x++) {
-    //             console.log(tiles[x].index)
-    //             console.log(this.index)
-    //             if (tiles[x].index === this.index) {
-    //                 tiles[x].clicked = true
-    //                 tiles[x].texture = PIXI.Texture.from('/images/tile-clicked.png')
-    //                 console.log(tiles[x].texture)
-    //             }
-    //         }
-    //     }
-    //     console.log(tiles)
-    // console.log(this)
     }
 }
 
@@ -239,42 +225,3 @@ function getBottomRightIndex(n) {
     if (n >= 90 || n % 10 === 9) return false;
     else return n+11;
 }
-
-// keep a queue of tile indices to visit (getAdjacentTiles)
-// when you visit a zero-tile (countAdjacentMines(0)), get valid neighbor indices, reveal all of those tiles, if neighboring tile is a zero-tile, add it to the toVisit queue
-// function revealTiles(tile) {
-//     tile.clicked = true;
-//     tile.texture = PIXI.Texture.from('/images/tile-clicked.png')
-//     console.log(tile)
-// }
-
-// function revealAdjacentTiles(n) {
-//     console.log('n', n);
-//     console.log('getAdjacentTiles(n)', getAdjacentTiles(n));
-//     n.clicked = true;
-//     n.texture = PIXI.Texture.from('/images/tile-clicked.png')
-//     console.log(n)
-//     const queue = [n];
-    // while (queue.length) {
-    //     const adjArr = getAdjacentTiles(queue.shift())
-    //     for (let i = 0; i < adjArr.length; i++) {
-    //         if (countAdjacentMines(adjArr[i]) === 0) {
-    //             const tile = app.stage.children[i]
-    //             queue.push(adjArr[i]);
-    //             console.log(tile);
-    //         }
-    //     }
-    // }
-    // const queue = [n];
-    // while (queue.length) {
-    //     // queue.unshift to get the front element
-    //     // get neighbor indices
-    //     // reveal neighbors
-    //     // if neighbor tile is zero-tile
-    //         // add that index to the queue 
-    // }
-    // if (countAdjacentMines(n) === 0) {
-    //     tileClick(getAdjacentTiles(n))
-    // } else {
-    //     return
-// keep going until toVisit queue is empty
