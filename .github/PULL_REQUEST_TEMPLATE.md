@@ -1,6 +1,6 @@
 ❗ Please **DO NOT** open a Pull Request without creating an Issue first. Failure to do so will result in the rejection of the pull request.
 
-## Purposegit 
+## Purpose
 
 Fixes #[issue]
 
