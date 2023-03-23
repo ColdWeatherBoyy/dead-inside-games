@@ -28,7 +28,7 @@ let app = new PIXI.Application({
 });
 // Adds view to dom
 document.body.appendChild(app.view);
-
+document.addEventListener("contextmenu", e => e.preventDefault());
 
 // Sets up board
 for (let i = 0; i < (boardSize ** 2); i++) {
@@ -42,7 +42,7 @@ for (let i = 0; i < (boardSize ** 2); i++) {
     app.stage.addChild(tile);
     tile.interactive = true;
     tile.buttonMode = true;
-    tile.on('pointertap', tileClick);
+    tile.on('pointerdown', tileClick);
     tile.on('rightdown', tileRightClick);
     app.stage.children[i].mine = false;
     app.stage.children[i].index = i;
@@ -83,7 +83,7 @@ function tileClick() {
 
 // Adds flag on right click 
 function tileRightClick() {
-        this.texture = PIXI.Texture.from(`/images/tile-flag.png`)
+    this.texture = PIXI.Texture.from(`/images/tile-flag.png`)
 }
 
 // Adjacent tiles functions to check for mines
