@@ -1,33 +1,40 @@
 <h1>DEAD INSIDE</h1>
 <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      Login
-    </p>
-
-  </header>
-  <div class="card-content">
-    <div class="field">
-      <label class="label">Name</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="e.g Alex Smith" />
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          class="input"
-          type="email"
-          placeholder="e.g. alexsmith@gmail.com"
-        />
-      </div>
-    </div>
-  </div>
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item">Save</a>
-    <a href="#" class="card-footer-item">Edit</a>
-    <a href="#" class="card-footer-item">Delete</a>
-  </footer>
+	<header class="card-header">
+		<p class="card-header-title">Login</p>
+	</header>
+	<div class="card-content">
+		<form id="login-form">
+			<div class="field">
+				<label class="label">Username</label>
+				<div class="control">
+					<input
+						class="input"
+						type="text"
+						placeholder="e.g. Alex Smith or cOlInSpRoWs"
+						id="username-login"
+					/>
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Password</label>
+				<div class="control">
+					<input
+						class="input"
+						type="password"
+						placeholder="e.g. ********"
+						id="password-login"
+					/>
+				</div>
+			</div>
+			<p class="has-text-centered is-size-6">Don't have an account?</p>
+			<p style="margin-bottom: 20" class="has-text-centered is-size-7"><a
+					href="/signup"
+				>Sign Up Here</a></p>
+			<footer class="card-footer">
+				<button class="button card-footer-item" id="login-submit">Log In</button>
+			</footer>
+		</form>
+	</div>
 </div>
+<script src="/js/login.js"></script>
