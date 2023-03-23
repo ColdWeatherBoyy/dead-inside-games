@@ -30,18 +30,10 @@ router.post("/signup", async (req, res) => {
 	} catch (err) {
 		// unique constraint error for Username
 		if (err.name === "SequelizeUniqueConstraintError") {
-			// alert("Username is not unique, please try again!");
-			res.status(409).json("Username is not unique, please try again!");
+			res.status(409).json("Username is not unique.");
 			// error for password validation
 		} else if (err.name === "SequelizeValidationError") {
-			// alert(
-			// 	"Password does not meet constraints (one uppercase letter, one lowercase letter, and one number."
-			// );
-			res
-				.status(409)
-				.json(
-					"Password does not meet constraints (one uppercase letter, one lowercase letter, and one number)."
-				);
+			res.status(409).json("Password does not meet constraints.");
 		} else {
 			res.status(500).json(err);
 		}

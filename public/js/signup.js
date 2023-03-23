@@ -12,13 +12,19 @@ const signupFormHandler = async (event) => {
 			headers: { "Content-Type": "application/json" },
 		});
 
+		const data = await response.json();
+
 		if (response.ok) {
 			document.location.replace("/minesweeper");
-		} else {
-			alert("Failed to sign up.");
+		} else if (data === "Username is not unique.") {
+			alert("Username is not unique, please try again!");
+		} else if (data === "Password does not meet constraints.") {
+			alert(
+				"Password does not meet constraints (one uppercase letter, one lowercase letter, and one number)."
+			);
 		}
 	} else {
-		alert("Please enter a valid username and password.");
+		alert("You've gotta enter a username and password!");
 	}
 };
 
