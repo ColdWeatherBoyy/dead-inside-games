@@ -6,7 +6,7 @@ const sequelize = require("../config/connection");
 class User extends Model {
 	// method to validate password
 	checkPassword(loginPassword) {
-		return bcrypt.compareSync(loginPassword, this.checkPassword);
+		return bcrypt.compareSync(loginPassword, this.password);
 	}
 }
 
@@ -19,9 +19,13 @@ User.init(
 			primaryKey: true,
 			autoIncrement: true,
 		},
+		// preserves user entered capitalization
 		username: {
 			type: DataTypes.STRING,
 			allowNull: false,
+		},
+		unique_username: {
+			type: DataTypes.STRING,
 			// unique users only
 			unique: true,
 			validate: {
@@ -32,19 +36,21 @@ User.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
-				// reqiures password to have one digit, one lowercase, one uppercase, and be at least 8 charactes long
+				// requires password to have one digit, one lowercase, one uppercase, and be at least 8 charactes long
 				is: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/,
 			},
 		},
 	},
 	{
 		hooks: {
-			// hashes password before creation
+			// hashes password before creation and lowercases username to make non-case specific
 			beforeCreate: async (newUserData) => {
+				newUserData.unique_username = await newUserData.username.toLowerCase();
 				newUserData.password = await bcrypt.hash(newUserData.password, 10);
 			},
-			// if we ever add an update password, hook for that
+			// if we ever add an update password, hook for that (same for lowercase usernames)
 			beforeUpdate: async (newUserData) => {
+				newUserData.unique_username = await newUserData.username.toLowerCase();
 				newUserData.password = await bcrypt.hash(newUserData.password, 10);
 			},
 		},

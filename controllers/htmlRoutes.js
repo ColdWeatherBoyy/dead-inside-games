@@ -18,12 +18,22 @@ router.get("/minesweeper", async (req, res) => {
 			order: [["score", "DESC"]],
 			limit: 10,
 		});
+		//to be enabled when sessions are live
+		//const username= req.session.username
+		const username = "randomUser";
 
+		// grabs the data values only
 		const highscores = highscoreData.map((highscore) => highscore.get({ plain: true }));
 
-		res.status(200).json(highscores);
-		// for the eventual render (use a partial)
-		// res.render("minesweeper", { highscores, loggedIn: req.session.loggedIn })
+		// placeholder image for game
+		const placeholderImage = { imageURL: "/images/samplepic.png" };
+
+		// for the eventual render (use a partial)// to be added when live : loggedIn: req.session.loggedIn
+		res.render("minesweeper", {
+			highscores,
+			username: username,
+			placeholderImage,
+		});
 	} catch (err) {
 		res.status(500).json(err);
 	}
