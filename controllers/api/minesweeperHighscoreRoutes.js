@@ -53,7 +53,7 @@ router.delete("/:id", async (req, res) => {
 		});
 
 		if (!highscoreData) {
-			res.status(404).json({ message: "Invalid Score." });
+			return res.status(404).json({ message: "Invalid Score." });
 		}
 		res.status(200).json(highscoreData);
 	} catch (err) {
