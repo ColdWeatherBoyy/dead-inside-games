@@ -49,17 +49,13 @@ router.post("/login", async (req, res) => {
 
 		// checks if userData is found
 		if (!userData) {
-			// alert("Username not found, please try again.");
-			return res.status(404).json({ message: "Username not found, please try again." });
+			return res.status(404).json("Username not found.");
 		}
 
 		const validPassword = userData.checkPassword(req.body.password);
 
 		if (!validPassword) {
-			// alert("Password does not match, please try again.");
-			return res
-				.status(404)
-				.json({ message: "Password does not match, please try again." });
+			return res.status(404).json("Password does not match.");
 		}
 
 		req.session.save(() => {
