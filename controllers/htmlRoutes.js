@@ -2,10 +2,11 @@ const router = require("express").Router();
 const { User, MinesweeperHighscores } = require("../models/index.js");
 // add this to all html routes that need to be behind the password wall
 const withAuth = require("../utils/auth");
+const ifLoggedIn = require("../utils/loggedInCheck");
 
 // get route for top 15 Highscores in Minesweeper – this will need to be included in our main minesweeper route
 // also needs to have withAuth added to it once login is configured
-router.get("/minesweeper", async (req, res) => {
+router.get("/minesweeper", withAuth, async (req, res) => {
 	try {
 		const highscoreData = await MinesweeperHighscores.findAll({
 			attributes: ["score", "created_at", "user_id"],
@@ -39,7 +40,7 @@ router.get("/minesweeper", async (req, res) => {
 });
 
 // HTML get route for login page
-router.get("/login", async (req, res) => {
+router.get("/login", ifLoggedIn, async (req, res) => {
 	try {
 		res.render("login", {});
 	} catch (err) {
@@ -48,7 +49,7 @@ router.get("/login", async (req, res) => {
 });
 
 // HTML get route for signup page
-router.get("/signup", async (req, res) => {
+router.get("/signup", ifLoggedIn, async (req, res) => {
 	try {
 		res.render("signup", {});
 	} catch (err) {
