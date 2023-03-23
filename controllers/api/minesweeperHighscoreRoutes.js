@@ -3,9 +3,7 @@ const { User, MinesweeperHighscores } = require("../../models/index.js");
 
 router.post("/", async (req, res) => {
 	try {
-		// add back in when sessions online
-		// const user_id = req.session.user_id;
-		const user_id = 4;
+		const user_id = req.session.user_id;
 
 		const { score } = req.body;
 

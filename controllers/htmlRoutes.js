@@ -2,10 +2,11 @@ const router = require("express").Router();
 const { User, MinesweeperHighscores } = require("../models/index.js");
 // add this to all html routes that need to be behind the password wall
 const withAuth = require("../utils/auth");
+const ifLoggedIn = require("../utils/loggedInCheck");
 
 // get route for top 15 Highscores in Minesweeper – this will need to be included in our main minesweeper route
 // also needs to have withAuth added to it once login is configured
-router.get("/minesweeper", async (req, res) => {
+router.get("/minesweeper", withAuth, async (req, res) => {
 	try {
 		const highscoreData = await MinesweeperHighscores.findAll({
 			attributes: ["score", "created_at", "user_id"],
@@ -19,8 +20,7 @@ router.get("/minesweeper", async (req, res) => {
 			limit: 10,
 		});
 		//to be enabled when sessions are live
-		//const username= req.session.username
-		const username = "randomUser";
+		const username = req.session.username;
 
 		// grabs the data values only
 		const highscores = highscoreData.map((highscore) => highscore.get({ plain: true }));
@@ -28,11 +28,11 @@ router.get("/minesweeper", async (req, res) => {
 		// placeholder image for game
 		const placeholderImage = { imageURL: "/images/samplepic.png" };
 
-		// for the eventual render (use a partial)// to be added when live : loggedIn: req.session.loggedIn
 		res.render("minesweeper", {
 			highscores,
 			username: username,
 			placeholderImage,
+			loggedIn: req.session.loggedIn,
 		});
 	} catch (err) {
 		res.status(500).json(err);
@@ -40,7 +40,7 @@ router.get("/minesweeper", async (req, res) => {
 });
 
 // HTML get route for login page
-router.get("/login", async (req, res) => {
+router.get("/login", ifLoggedIn, async (req, res) => {
 	try {
 		res.render("login", {});
 	} catch (err) {
@@ -49,9 +49,18 @@ router.get("/login", async (req, res) => {
 });
 
 // HTML get route for signup page
-router.get("/signup", async (req, res) => {
+router.get("/signup", ifLoggedIn, async (req, res) => {
 	try {
 		res.render("signup", {});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+// redirect from main homepage
+router.get("/", async (req, res) => {
+	try {
+		res.redirect("/minesweeper");
 	} catch (err) {
 		res.status(500).json(err);
 	}
