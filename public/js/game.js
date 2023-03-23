@@ -43,8 +43,8 @@ for (let i = 0; i < (boardSize ** 2); i++) {
     app.stage.addChild(tile);
     tile.interactive = true;
     tile.buttonMode = true;
-    tile.on('pointerdown', tileClick);
-    tile.on('rightdown', tileRightClick);
+    tile.on('click', tileClick);
+    tile.on('rightclick', tileRightClick);
     app.stage.children[i].mine = false;
     app.stage.children[i].clicked = false;
     app.stage.children[i].index = i;
@@ -58,7 +58,7 @@ const numberOfMines = 10;
 for (let i = 0; i < numberOfMines; i++) {
     const randomIndex = Math.floor(Math.random() * 100);
     tiles[randomIndex].mine = true;
-    bombArray.push(tiles[randomIndex])
+    // bombArray.push(tiles[randomIndex])
 }
 // console.log(bombArray)
 // tiles.filter(object => bombArray.includes)
@@ -93,6 +93,7 @@ function tileClick() {
             const current = toVisit.pop();
             seen.add(current);
             const neighbors = getAdjacentTiles(current);
+            console.log(neighbors)
             for (let i = 0; i < neighbors.length; i++) {
 
                 // reveal this neighbor
@@ -118,6 +119,8 @@ function tileClick() {
 // Adds flag on right click 
 function tileRightClick() {
     this.texture = PIXI.Texture.from(`/images/tile-flag.png`)
+    this.click = false
+
 }
 
 // Adjacent tiles functions to check for mines
@@ -183,45 +186,45 @@ function getAdjacentTiles(n) {
         getTopLeftIndex(n),       getTopIndex(n),     getTopRightIndex(n),
         getLeftIndex(n),                                 getRightIndex(n),
         getBottomLeftIndex(n), getBottomIndex(n),  getBottomRightIndex(n) 
-    ].filter(elem => elem)
+    ].filter(elem => elem === -1 ? false : true) 
 }
 
 function getTopLeftIndex(n) {
-    if (n <= 9 || n % 10 === 0) return false;
+    if (n <= 9 || n % 10 === 0) return -1;
     else return n-11;
 }
 
 function getTopIndex(n) {
-    if (n <= 9) return false;
+    if (n <= 9) return -1;
     else return n-10;
 }
 
 function getTopRightIndex(n) {
-    if (n <= 9 || n % 10 === 9) return false;
+    if (n <= 9 || n % 10 === 9) return -1;
     else return n-9;
 }
 
 function getLeftIndex(n) {
-    if (n % 10 === 0) return false;
+    if (n % 10 === 0) return -1;
     else return n-1;
 }
 
 function getRightIndex(n) {
-    if (n % 10 === 9) return false;
+    if (n % 10 === 9) return -1;
     else return n+1;
 }
 
 function getBottomLeftIndex(n) {
-    if (n >= 90 || n % 10 === 0) return false;
+    if (n >= 90 || n % 10 === 0) return -1;
     else return n+9;
 }
 
 function getBottomIndex(n) {
-    if (n >= 90) return false;
+    if (n >= 90) return -1;
     else return n+10;
 }
 
 function getBottomRightIndex(n) {
-    if (n >= 90 || n % 10 === 9) return false;
+    if (n >= 90 || n % 10 === 9) return -1;
     else return n+11;
 }
