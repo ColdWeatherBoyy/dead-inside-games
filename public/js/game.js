@@ -31,7 +31,6 @@ document.body.appendChild(app.view);
 // Prevents right-click from opening menu
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 
-// Sets up board
 for (let i = 0; i < boardSize ** 2; i++) {
 	const texture = PIXI.Texture.from("/images/tile.png");
 	const tile = new PIXI.Sprite(texture);
@@ -43,13 +42,18 @@ for (let i = 0; i < boardSize ** 2; i++) {
 	app.stage.addChild(tile);
 	tile.interactive = true;
 	tile.buttonMode = true;
-	tile.on("click", tileClick);
-	tile.on("rightclick", tileRightClick);
 	app.stage.children[i].mine = false;
 	app.stage.children[i].clicked = false;
 	app.stage.children[i].index = i;
 }
 tiles = app.stage.children;
+
+function isClickable() {
+tiles.forEach(tile => {
+	tile.on("click", tileClick);
+	tile.on("rightclick", tileRightClick);
+})
+};
 
 // For later - change # of mines to be dynamic
 // let bombArray = []
