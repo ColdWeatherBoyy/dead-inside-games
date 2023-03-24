@@ -1,15 +1,59 @@
-<h1>DEAD INSIDE</h1>
-<form>
-  <h1>LOGIN</h1>
-  <label for="username">USERNAME:</label>
-  <input type="text" id="username" name="username" /><br /><br />
+<div class="wrap">
+  <form class="columns is-centered" action="signup" id="signup-form">
 
-  <label for="password">PASSWORD:</label>
-  <input type="password" id="password" name="password" /><br /><br />
+    <header class="card-header">
+      <p class="card-header-title">Sign up</p>
+    </header>
 
-  <input type="submit" value="LOGIN" /><br /><br />
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-success" type="text" placeholder="Enter Username" id="username"/>
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </div>
+    </div>
 
-  <a href="#">Forgot your Password? TOO BAD</a><br />
 
-  <a href="#">Not a user? Sign up here!.</a>
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-success" type="password" placeholder="Enter Password" id="password"/>
+      </div>
+
+      {{!-- <div class="field">
+        <label class="label">Retype Password</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-success" type="password" placeholder="Retype Password" />
+        </div> --}}
+
+        <div class="field agree">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" />
+              I agree to the
+              <a href="#">terms and conditions</a>
+            </label>
+          </div>
+
+
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+            <p class="control">
+              <button class="button is-link is-light">Cancel</button>
+          </div>
+
+
+          <p style="margin-bottom: 20" class="has-text-centered is-size-7">Already a user?
+            <a href="/login"> Return to Login</a>
+          </p>
+  </form>
+</div>
 </form>
+<script src="/js/signup.js"></script>

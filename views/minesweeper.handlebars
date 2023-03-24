@@ -24,4 +24,22 @@
   </div>
   <script src="/js/logout.js"></script>
   <script src="/js/highscores.js"></script>
+  <script src="/js/game.js"></script>
+  <h1 id="lost" class="is-hidden">You Lose!</h1>
+  <button id="reset" class="is-hidden">Restart Game</button>
+  <div class="start-button" id="start-btn">
+    <button class="btn btn-primary" type="start">Start Game</button>
+  </div>
+  <div id="timer" class="is-hidden">Time Left: 120</div>
+  <div class="row">
+    <a href="placeholder">Highscores</a>
+    <a
+      href="/api/userRoutes/logout/{{id}}"
+      id="logout"
+      class="btn-no-style"
+    >Logout</a>
+
+  </div>
+  <script src="/js/logout.js"></script>
+  <script src="/js/startgame.js"></script>
 </section>

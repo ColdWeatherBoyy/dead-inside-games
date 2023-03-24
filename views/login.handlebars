@@ -1,40 +1,45 @@
-<h1>DEAD INSIDE</h1>
-<div class="card">
-	<header class="card-header">
-		<p class="card-header-title">Login</p>
-	</header>
-	<div class="card-content">
-		<form id="login-form">
-			<div class="field">
-				<label class="label">Username</label>
+<div class="wrap">
+	<form class="columns is-centered" id="login-form" action="login">
+
+		<header class="card-header">
+			<p class="card-header-title">Login</p>
+		</header>
+
+		<div class="field">
+			<label class="label">Username</label>
+			<div class="control has-icons-left has-icons-right">
+				<input class="input is-success" type="text" placeholder="Enter Username" id="username-login" />
+				<span class="icon is-small is-left">
+					<i class="fas fa-user"></i>
+				</span>
+				<span class="icon is-small is-right">
+					<i class="fas fa-check"></i>
+				</span>
+			</div>
+		</div>
+
+
+
+
+		<div class="field">
+			<label class="label">Password</label>
+			<div class="control has-icons-left has-icons-right">
+				<input class="input is-success" type="password" placeholder="Enter Password" id="password-login"/>
+			</div>
+
+
+
+			<div class="field is-grouped">
 				<div class="control">
-					<input
-						class="input"
-						type="text"
-						placeholder="e.g. Alex Smith or cOlInSpRoWs"
-						id="username-login"
-					/>
+					<button class="button is-link">Submit</button>
 				</div>
 			</div>
-			<div class="field">
-				<label class="label">Password</label>
-				<div class="control">
-					<input
-						class="input"
-						type="password"
-						placeholder="e.g. ********"
-						id="password-login"
-					/>
-				</div>
-			</div>
-			<p class="has-text-centered is-size-6">Don't have an account?</p>
-			<p style="margin-bottom: 20" class="has-text-centered is-size-7"><a
-					href="/signup"
-				>Sign Up Here</a></p>
-			<footer class="card-footer">
-				<button class="button card-footer-item" id="login-submit">Log In</button>
-			</footer>
-		</form>
-	</div>
+
+
+			<p style="margin-bottom: 20" class="has-text-centered is-size-7">Forgot your password? TOO BAD! <br>
+				Not a user? <a href="/signup"> Sign up!</a>
+			</p>
+	</form>
 </div>
+</form>
 <script src="/js/login.js"></script>
