@@ -55,6 +55,13 @@ tiles.forEach(tile => {
 })
 };
 
+function isNotClickable() {
+	tiles.forEach(tile => {
+		tile.off("click", tileClick);
+		tile.off("rightclick", tileRightClick);
+	})
+	};
+
 // For later - change # of mines to be dynamic
 // let bombArray = []
 const numberOfMines = 10;

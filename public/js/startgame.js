@@ -36,7 +36,22 @@ function removeStartBtn() {
     clearInterval(timerInterval);
     lostEl.classList.remove("is-hidden")
     resetEl.classList.remove("is-hidden")
-    startBtn.addEventListener("click", startGame);
+    isNotClickable()
+    const unclickedArr = tiles.filter(tile => !tile.clicked)
+    console.log(unclickedArr)
+        unclickedArr.forEach(tile => {
+        const numAdjMines = countAdjacentMines(tile.index);
+        if (tile.mine) {
+            tile.texture = PIXI.Texture.from("/images/tile-bomb.png");
+        } else if (numAdjMines) {
+            tile.texture = PIXI.Texture.from(`/images/tile-${numAdjMines}.png`);
+        } else {
+            tile.texture = PIXI.Texture.from("/images/tile-clicked.png"); 
+        };
+  })};
 
-    // returns alert that the game is over and the player lost 
+  function restartGame() {
+    location.reload()
   }
+
+  resetEl.addEventListener("click", restartGame);
