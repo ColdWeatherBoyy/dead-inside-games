@@ -2,6 +2,7 @@ const startingTime = 120;
 let timeRemaining = startingTime;
 const startBtn = document.getElementById('start-btn');
 const timerEl = document.getElementById('timer');
+const lostEl = document.getElementById("lost");
 
   // To start the timer the user pushes the Start Game Button
   function startGame() {
@@ -32,6 +33,6 @@ function removeStartBtn() {
   // Once the count down timer reaches zero, the game stops 
   function endGame() {
     clearInterval(timerInterval);
+    lostEl.classList.remove("is-hidden")
     // returns alert that the game is over and the player lost 
-    alert("You Lost!")
   }
