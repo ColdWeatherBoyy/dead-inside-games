@@ -8,12 +8,10 @@
 	</div>
 	{{> minesweeperhighscores}}
 	<div id="timer" class="is-hidden">Time Left: 120</div>
-	<div class="row">
-		<a href="placeholder">Highscores</a>
-		<a href="/api/userRoutes/logout/{{id}}" id="logout" class="btn-no-style">Logout</a>
-
-	</div>
 	<script src="/js/logout.js"></script>
 	<script src="/js/startgame.js"></script>
 	<script src="/js/highscore.js"></script>
 </section>
+<div class="logout-container">
+	<a href="/api/userRoutes/logout/{{id}}" id="logout" class="btn-no-style">Logout</a>
+</div>

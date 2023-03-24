@@ -71,7 +71,7 @@ form {
 
 }
 
-/* DEREK CSS */
+/* MODAL CSS */
 *,
 *::after,
 *::before {
@@ -79,47 +79,34 @@ form {
 }
 
 #modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
   display: none;
-  transition: 200ms ease-in-out;
-  border: 1px solid black;
-  border-radius: 20px;
-  z-index: 100;
-  background-color: black;
-  width: 500px;
-  max-width: 80%;
 }
 
 #modal.active {
-  display: block;
+  display: contents;
 }
 
-.modal-header {
-  padding: 10px 15px;
+.modal-card-head {
+  background-color: black;
   display: flex;
-  justify-content: space-between;
-  align-self: center;
-  border-bottom: 1px solid black;
 }
 
-.modal-header .title {
-  font-size: 1.25rem;
-  font-weight: bold;
+.modal-card-title {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 2.5rem;
 }
 
-.modal-header .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
+h1 {
+  display: flex;
 }
 
-.modal-body {
-  padding: 10px 15px;
+.hs-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 #overlay {
