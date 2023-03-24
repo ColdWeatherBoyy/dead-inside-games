@@ -31,14 +31,14 @@ const PORT = process.env.PORT || 3001;
 // sets up session object details
 
 const sess = {
-	secret: process.env.SESSION_SECRET,
-	cookie: { maxAge: 86400000 },
-	resave: false,
-	saveUninitialized: true,
-	secure: false,
-	store: new SequelizeStore({
-		db: sequelize,
-	}),
+  secret: process.env.SESSION_SECRET,
+  cookie: { maxAge: 86400000 },
+  resave: false,
+  saveUninitialized: true,
+  secure: false,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 // middleware for sessions
@@ -58,5 +58,5 @@ app.use("/", routes);
 
 // initialize sequelize and express listener
 sequelize.sync({ force: false }).then(() => {
-	app.listen(PORT, () => console.log(`Now listening at ${PORT}`));
+  app.listen(PORT, () => console.log(`Now listening at ${PORT}`));
 });
