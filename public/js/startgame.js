@@ -9,7 +9,7 @@ const resetEl = document.getElementById("reset")
   function startGame() {
     setTimer();
     removeStartBtn();
-    makeClickable()
+    isClickable();
   }
 
   startBtn.addEventListener("click", startGame);
@@ -30,12 +30,6 @@ function removeStartBtn() {
     startBtn.classList.add("is-hidden")
     timerEl.classList.remove("is-hidden")
 }
-
-function makeClickable() {
-    tiles.forEach(tile => { tile.isClickable = true });
-    console.log(tiles)
-}
-
 
   // Once the count down timer reaches zero, the game stops 
   function endGame() {
