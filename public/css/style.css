@@ -8,7 +8,13 @@
   height: 30vh !important;
 }
 
-form {
+#start,
+#timer {
+  margin: 1em;
+}
+
+form,
+#test {
   max-width: 600px;
   width: 65vw;
   text-align: center;
@@ -23,6 +29,7 @@ form {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(211, 210, 210);
+  box-shadow: 0px 0px 50px rgb(0, 0, 0);
 }
 
 .wrap {
@@ -42,11 +49,13 @@ form {
   background-color: black;
   color: white;
   border-radius: 25px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
 
 .control {
   justify-content: center;
   text-align: center;
+ 
 }
 
 .label {
@@ -56,6 +65,7 @@ form {
 .field.is-grouped {
   justify-content: center;
   padding-top: 25px;
+
 }
 
 .control.has-icons-left .input {
@@ -66,6 +76,20 @@ form {
   padding-top: 25px;
 }
 
-#login-form {
+.control .button {
+  background-color: black;
+}
 
+.control .button:hover {
+  background-color: red;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+}
+
+.btn:hover {
+  background-color: red;
 }

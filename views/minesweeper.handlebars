@@ -1,15 +1,24 @@
-<h1>Welcome to Minesweeper, {{username}}</h1>
-<section class="grid">
-	<script src="/js/game.js"></script>
-	<div class="start-button" id="start-btn">
-		<button class="btn btn-primary" type="start">Start Game</button>
-	</div>
-	<div id="timer" class="is-hidden">Time Left: 120</div>
-	<div class="row">
-		<a href="placeholder">Highscores</a>
-		<a href="/api/userRoutes/logout/{{id}}" id="logout" class="btn-no-style">Logout</a>
+<div class="wrap"></div>
+<div id="test">
 
-	</div>
-	<script src="/js/logout.js"></script>
-	<script src="/js/startgame.js"></script>
-</section>
+	<h1 class="header is-size-4">Welcome to Minesweeper,
+		{{username}}</h1>
+	<section class="grid">
+		{{!
+		<script src="/js/game.js"></script> }}
+		<div class="start-button" id="start-btn">
+			<button id="start" class="btn btn-primary is-size-3" type="start">Start Game</button>
+		</div>
+		<div id="timer" class="is-hidden">Time Left: 120</div>
+		<div id="frame"></div>
+		<div class="row" style=" margin:1em">
+			<a href="placeholder">Highscores</a>
+			<a href="/api/userRoutes/logout/{{id}}" id="logout" class="btn-no-style">Logout</a>
+
+		</div>
+		<script src="/js/game.js"></script>
+		<script src="/js/logout.js"></script>
+		<script src="/js/startgame.js"></script>
+	</section>
+</div>
+</div>
