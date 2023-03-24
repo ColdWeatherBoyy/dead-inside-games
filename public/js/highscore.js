@@ -13,7 +13,6 @@ closeButton.addEventListener("click", () => {
 });
 
 function openModal(modal) {
-  //   if (modal === null) return;
   modal.classList.add("active");
   overlay.classList.add("active");
 }
