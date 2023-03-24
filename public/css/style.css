@@ -9,6 +9,7 @@
 }
 
 form {
+  max-width: 600px;
   width: 65vw;
   text-align: center;
   flex-direction: column;
@@ -32,6 +33,7 @@ form {
 
 .card-header {
   border-radius: 25px;
+  margin-bottom: 25px;
 }
 
 .card-header-title {
@@ -44,8 +46,22 @@ form {
 
 .control {
   justify-content: center;
+  text-align: center;
 }
 
 .label {
   justify-content: center;
+}
+
+.field.is-grouped {
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.control.has-icons-left .input {
+  padding-left: 12px;
+}
+
+.agree {
+  padding-top: 25px;
 }
