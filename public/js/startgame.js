@@ -36,7 +36,6 @@ function removeStartBtn() {
     clearInterval(timerInterval);
     lostEl.classList.remove("is-hidden")
     resetEl.classList.remove("is-hidden")
-    // startBtn.addEventListener("click", startGame);
     isNotClickable()
     const unclickedArr = tiles.filter(tile => !tile.clicked)
     console.log(unclickedArr)
@@ -50,3 +49,9 @@ function removeStartBtn() {
             tile.texture = PIXI.Texture.from("/images/tile-clicked.png"); 
         };
   })};
+
+  function restartGame() {
+    location.reload()
+  }
+
+  resetEl.addEventListener("click", restartGame);
