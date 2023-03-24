@@ -1,9 +1,30 @@
-<div class="row">
+{{!-- <div class="row">
   <button class="modal-button">Highscores</button>
   <div class="modal" id="modal">
+    <button class="close-button" id="close-button"> &times; </button>
     <div class="modal-header"></div>
     <div class="title">Highscores,loser</div>
-    <button class="close-button" id="close-button"> &times; </button>
     <div class="modal-body">Where the highscores go</div>
   </div>
-<div id="overlay"></div>
+<div id="overlay"></div> --}}
+
+<button class="modal-button">Highscores</button>
+<div class="modal" id="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <h1 class="modal-card-title">HIGHSCORES</h1>
+      <button class="delete" aria-label="close" id="close-button"> &times; </button>
+    </header>
+    <section class="modal-card-body">
+      <div class="hs-entry">
+        <h2>Name</h2>
+        <h2>SCORE</h2>
+      </div>
+      <div class="hs-entry">
+        <h2>Hat Man</h2>
+        <h2>69</h2>
+      </div>
+    </section>
+  </div>
+</div>
