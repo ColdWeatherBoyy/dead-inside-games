@@ -33,4 +33,5 @@ function removeStartBtn() {
   function endGame() {
     clearInterval(timerInterval);
     // returns alert that the game is over and the player lost 
+    alert("You Lost!")
   }
