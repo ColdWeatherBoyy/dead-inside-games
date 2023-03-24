@@ -86,13 +86,13 @@ function tileClick() {
 	const numAdjMines = countAdjacentMines(this.index);
 	if (this.mine === true) {
 		this.texture = PIXI.Texture.from("/images/tile-bomb.png");
+		endGame()
 	} else if (numAdjMines > 0) {
 		this.texture = PIXI.Texture.from(`/images/tile-${numAdjMines}.png`);
 	} else if (numAdjMines === 0) {
 		this.texture = PIXI.Texture.from("/images/tile-clicked.png");
 		const toVisit = [this.index];
 		const seen = new Set();
-
 		while (toVisit.length) {
 			const current = toVisit.pop();
 			seen.add(current);
