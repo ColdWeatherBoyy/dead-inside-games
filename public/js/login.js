@@ -11,13 +11,17 @@ const loginFormHandler = async (event) => {
 			headers: { "Content-Type": "application/json" },
 		});
 
+		const data = await response.json();
+
 		if (response.ok) {
 			document.location.replace("/minesweeper");
-		} else {
-			alert("Failed to log in.");
+		} else if (data === "Username not found.") {
+			alert("Username not found, please try again.");
+		} else if (data === "Password does not match.") {
+			alert("Password does not match, please try again.");
 		}
 	} else {
-		alert("You have to enter a username and password!");
+		alert("You've gotta enter a username and password!");
 	}
 };
 

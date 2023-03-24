@@ -2,8 +2,9 @@ const router = require("express").Router();
 const { User, MinesweeperHighscores } = require("../../models/index");
 
 // route for login creation
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
 	try {
+		console.log(req.body);
 		const { username, password } = req.body;
 
 		// validates that both username and password have been submitted
@@ -29,16 +30,10 @@ router.post("/", async (req, res) => {
 	} catch (err) {
 		// unique constraint error for Username
 		if (err.name === "SequelizeUniqueConstraintError") {
-			res.status(409).json("Username is not unique, please try again!");
-			// alert("Username is not unique, please try again!");
+			res.status(409).json("Username is not unique.");
 			// error for password validation
 		} else if (err.name === "SequelizeValidationError") {
-			res
-				.status(409)
-				.json(
-					"Password does not meet constraints (one uppercase letter, one lowercase letter, and one number)."
-				);
-			// alert("Password does not meet constraints (one uppercase letter, one lowercase letter, and one number.");
+			res.status(409).json("Password does not meet constraints.");
 		} else {
 			res.status(500).json(err);
 		}
@@ -54,19 +49,13 @@ router.post("/login", async (req, res) => {
 
 		// checks if userData is found
 		if (!userData) {
-			// add back in when working with site
-			// alert("Username not found, please try again.");
-			return res.status(404).json({ message: "Username not found, please try again." });
+			return res.status(404).json("Username not found.");
 		}
 
 		const validPassword = userData.checkPassword(req.body.password);
 
 		if (!validPassword) {
-			// add back in when working with site
-			// alert("Password does not match, please try again.");
-			return res
-				.status(404)
-				.json({ message: "Password does not match, please try again." });
+			return res.status(404).json("Password does not match.");
 		}
 
 		req.session.save(() => {
