@@ -1,3 +1,11 @@
+html, body { 
+  height: 100vh; 
+}
+
+#frame {
+  padding: 25px
+}
+
 /* DEVIN CSS */
 .navbar {
   background-color: black;
@@ -69,6 +77,28 @@ form {
 
 #login-form {
 
+}
+
+#gamecard {
+  max-width: 600px;
+  width: 65vw;
+  text-align: center;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(211, 210, 210);
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+
+#wrapper {
+  height: 100%;
 }
 
 /* MODAL CSS */
