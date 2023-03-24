@@ -5,9 +5,15 @@
     <button class="btn btn-primary" type="start">Start Game</button>
   </div>
   <div class="row">
-    <a href="placehoder">Highscores</a>
-    <button id="highscore-btn" class="modal">View Highscores</button>
-    <span class="modal-content"></span>
+    <button>Highscores</button>
+    <div class="modal" id="modal">
+      <div class="modal-header"></div>
+      <div class="title">Highscores,loser</div>
+      <button class="close-button"> &times; </button>
+      <div class="modal-body">'Where the highscores go</div>
+      <div id="overlay"></div>
+
+    </div>
 
     <a
       href="/api/userRoutes/logout/{{id}}"
