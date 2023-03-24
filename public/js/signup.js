@@ -16,7 +16,7 @@ const signupFormHandler = async (event) => {
 		const data = await response.json();
 
 		if (response.ok) {
-			// document.location.replace("/minesweeper");
+			document.location.replace("/minesweeper");
 		} else if (data === "Username is not unique.") {
 			alert("Username is not unique, please try again!");
 		} else if (data === "Password does not meet constraints.") {
@@ -24,6 +24,8 @@ const signupFormHandler = async (event) => {
 				"Password does not meet constraints (one uppercase letter, one lowercase letter, and one number)."
 			);
 		}
+	} else if (!checked) {
+		alert("You've gotta accept terms and conditions (make sure you've read them)!!");
 	} else {
 		alert(
 			"You've gotta enter a username and password and accept the terms and conditions!!"
