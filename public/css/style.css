@@ -1,9 +1,52 @@
+:root {
+  --custom-font: 'Inter', sans-serif;
+}
+
+* {
+  font-family: var(--custom-font);
+}
+
 html, body { 
   height: 100vh; 
 }
 
 #frame {
-  padding: 25px;
+  padding: 12px 0px 50px 0px;
+}
+
+#lost {
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lost h2 {
+  font-weight: 800;
+  font-size: 30px;
+  color: red;
+  padding: 0px 12px;
+}
+
+.minesweeper-wrapper {
+  height: calc(100% - 100px);
+  padding: 0px 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.btn {
+  font-weight: 800;
+  font-family: var(--custom-font);
+}
+
+.start-button {
+  padding: 8px 0px 2px 0px;
+}
+
+.button.is-light {
+  border-radius: 10px;
 }
 
 /* DEVIN CSS */
@@ -114,7 +157,7 @@ form {
 }
 
 #modal.active {
-  display: contents;
+  display: flex;
 }
 
 .modal-card-head {
@@ -155,4 +198,42 @@ h1 {
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.modal-button {
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--custom-font);
+  padding: 0px 20px;
+}
+
+.logout-button {
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: var(--custom-font);
+  font-weight: 700;
+  padding: 0px 0px;
+}
+
+.modal-button {
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--custom-font);
+  padding: 0px 20px;
+}
+
+.modal-button:hover {
+  color: blue;
+}
+
+.logout-button:hover {
+  color: red;
 }
