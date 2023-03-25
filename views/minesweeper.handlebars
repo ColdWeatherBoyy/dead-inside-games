@@ -1,17 +1,36 @@
-<h1>Welcome to Minesweeper, {{username}}</h1>
-<section class="grid">
-	<script src="/js/game.js"></script>
-	<h1 id="lost" class="is-hidden">You Lose!</h1>
-	<button id="reset" class="is-hidden">Play Again</button>
-	<div class="start-button" id="start-btn">
-		<button class="btn btn-primary" type="start">Start Game</button>
+{{> header}}
+<div class="minesweeper-wrapper">
+	<div id="gamecard">
+		<section class="grid">
+			<h2>Welcome to Minesweeper, {{username}}</h2>
+			<button id="reset" class="is-hidden button is-light btn">Play Again</button>
+			<div class="start-button" id="start-btn">
+				<button class="button is-light btn btn-primary">Start Game</button>
+			</div>
+			<div id="timer" class="is-hidden">Time Left: 120</div>
+			<div id="frame"></div>
+			<div id="lost" class="is-hidden">
+				<img src="/images/sad-face.png">
+				<h2>YOU LOST</h2>
+				<img src="/images/sad-face.png">
+			</div>
+		</section>
 	</div>
+
 	{{> minesweeperhighscores}}
-	<div id="timer" class="is-hidden">Time Left: 120</div>
-	<script src="/js/logout.js"></script>
-	<script src="/js/startgame.js"></script>
-	<script src="/js/highscore.js"></script>
-</section>
-<div class="logout-container">
-	<a href="/api/userRoutes/logout/{{id}}" id="logout" class="btn-no-style">Logout</a>
+	<div class="logout-container">
+		<a href="/api/userRoutes/logout/{{id}}" id="logout" class="btn-no-style">
+		<button class="logout-button">Logout</button>
+		</a>
+		
+	</div>
+
 </div>
+
+<script src="/js/game.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/startgame.js"></script>
+<script src="/js/highscore.js"></script>
+
+
+

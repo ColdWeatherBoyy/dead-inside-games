@@ -4,38 +4,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dead Inside Games</title>
-    {{! link to Bulma CDN }}
+    {{!-- BULMA --}}
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
     />
-    {{! PIXI CDN }}
+    {{!-- PIXI --}}
     <script src="https://pixijs.download/release/pixi.js"></script>
+    {{!-- FONTS --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    {{!-- CSS --}}
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <img
-            src="/images/dead-inside-logo.svg"
-            alt="Bulma: Free, open source, and modern CSS framework based on Flexbox"
-          />
-        </a>
-
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-
-      </div>
-    </nav>
     {{{body}}}
   </body>
 </html>

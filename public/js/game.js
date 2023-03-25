@@ -26,8 +26,10 @@ let app = new PIXI.Application({
 	height: tileSize * boardSize,
 	backgroundColor: "grey",
 });
+
 // Adds view to dom
-document.body.appendChild(app.view);
+var gameFrame = document.getElementById("frame");
+gameFrame.appendChild(app.view);
 // Prevents right-click from opening menu
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 
