@@ -1,13 +1,3 @@
-{{!-- <div class="row">
-  <button class="modal-button">Highscores</button>
-  <div class="modal" id="modal">
-    <button class="close-button" id="close-button"> &times; </button>
-    <div class="modal-header"></div>
-    <div class="title">Highscores,loser</div>
-    <div class="modal-body">Where the highscores go</div>
-  </div>
-<div id="overlay"></div> --}}
-
 <button class="modal-button">Highscores</button>
 <div class="modal" id="modal">
   <div class="modal-background"></div>
@@ -16,14 +6,27 @@
       <h1 class="modal-card-title">HIGHSCORES</h1>
       <button class="delete" aria-label="close" id="close-button"> &times; </button>
     </header>
-    <section class="modal-card-body">
-      <div class="hs-entry">
-        <h2>Name</h2>
-        <h2>SCORE</h2>
+    <section class="modal-card-body columns">
+      <div class="left column">
+        <div class="hs-header">
+          <h2>Name</h2>
+        </div>
+        {{#each highscores as |msHighscores|}}
+        <div class="hs-entry">
+          <h2>{{user.username}}</h2>
+        </div>
+        {{/each}}
       </div>
-      <div class="hs-entry">
-        <h2>Hat Man</h2>
-        <h2>69</h2>
+
+      <div class="right column">
+        <div class="hs-header">
+          <h2>Score</h2>
+        </div>
+        {{#each highscores as |msHighscores|}}
+        <div class="hs-entry">
+          <h2>{{score}}</h2>
+        </div>
+        {{/each}}
       </div>
     </section>
   </div>

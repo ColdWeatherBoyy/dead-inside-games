@@ -41,6 +41,7 @@ router.get("/", async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
 //creating a delete route for deleting the high scores
 router.delete("/:id", async (req, res) => {
 	try {
