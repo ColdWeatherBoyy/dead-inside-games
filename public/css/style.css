@@ -163,6 +163,23 @@ form {
 .modal-card-head {
   background-color: black;
   display: flex;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-card-body {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.columns {
+  margin-left: 0rem;
+  margin-right: 0rem;
+  margin-top: 0rem;
+}
+
+.columns:last-child {
+  margin-bottom: 0rem;
 }
 
 .modal-card-title {
@@ -177,10 +194,25 @@ h1 {
   display: flex;
 }
 
+.hs-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 15px;
+}
+
+.hs-header h2 {
+  font-weight: 800;
+}
+
 .hs-entry {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.hs-entry h2 {
+  font-size: 1.25em;
 }
 
 #overlay {
