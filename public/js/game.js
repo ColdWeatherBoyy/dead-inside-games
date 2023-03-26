@@ -65,8 +65,8 @@ function isNotClickable() {
 	};
 
 // For later - change # of mines to be dynamic
-// let bombArray = []
-const numberOfMines = 10;
+// let bombArray = tiles.filter(tile => tile.mine);
+const numberOfMines = 1;
 const mineSet = new Set();
 
 while (mineSet.size < numberOfMines) {
@@ -99,7 +99,7 @@ function tileClick() {
 	const numAdjMines = countAdjacentMines(this.index);
 	if (this.mine === true) {
 		this.texture = PIXI.Texture.from("/images/tile-bomb-red.png");
-		endGame()
+		lostGame()
 	} else if (numAdjMines > 0) {
 		this.texture = PIXI.Texture.from(`/images/tile-${numAdjMines}.png`);
 	} else if (numAdjMines === 0) {
@@ -127,6 +127,11 @@ function tileClick() {
 			}
 		}
 	}
+	const unclickedArr = tiles.filter(tile => !tile.clicked)
+	if (unclickedArr.length === numberOfMines) {
+		wonGame()
+		console.log("won game")
+	} 
 }
 
 // Adds flag on right click

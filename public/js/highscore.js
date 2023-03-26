@@ -21,3 +21,23 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+highscoreEL.addEventListener('click', async () => {
+  try {
+    const response = await fetch('/api/minesweeper', {
+      method: 'POST',
+      body: JSON.stringify({ score: timeRemaining }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log(responseData);
+    } else {
+      console.error('Error:', response.status);
+    }
+  } catch (err) {
+    console.error('Error:', err);
+  }
+});

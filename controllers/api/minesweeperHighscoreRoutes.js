@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, MinesweeperHighscores } = require("../../models/index.js");
 
+
 router.post("/", async (req, res) => {
 	try {
 		const user_id = req.session.user_id;
