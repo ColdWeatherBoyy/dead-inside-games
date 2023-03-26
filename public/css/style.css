@@ -1,6 +1,59 @@
+:root {
+  --custom-font: 'Inter', sans-serif;
+}
+
+* {
+  font-family: var(--custom-font);
+}
+
+html, body { 
+  height: 100vh; 
+}
+
+#frame {
+  padding: 12px 0px 50px 0px;
+}
+
+#lost {
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lost h2 {
+  font-weight: 800;
+  font-size: 30px;
+  color: red;
+  padding: 0px 12px;
+}
+
+.minesweeper-wrapper {
+  height: calc(100% - 100px);
+  padding: 0px 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.btn {
+  font-weight: 800;
+  font-family: var(--custom-font);
+}
+
+.start-button {
+  padding: 8px 0px 2px 0px;
+}
+
+.button.is-light {
+  border-radius: 10px;
+}
+
+/* DEVIN CSS */
 .navbar {
   background-color: black;
   color: white;
+  box-shadow: 0 0px 0 0 #f5f5f5;
 }
 
 .navbar-item img {
@@ -68,4 +121,151 @@ form {
 
 #login-form {
 
+}
+
+#gamecard {
+  max-width: 600px;
+  width: 65vw;
+  text-align: center;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(211, 210, 210);
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+}
+
+#wrapper {
+  height: 100%;
+}
+
+/* MODAL CSS */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+#modal {
+  display: none;
+}
+
+#modal.active {
+  display: flex;
+}
+
+.modal-card-head {
+  background-color: black;
+  display: flex;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-card-body {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.columns {
+  margin-left: 0rem;
+  margin-right: 0rem;
+  margin-top: 0rem;
+}
+
+.columns:last-child {
+  margin-bottom: 0rem;
+}
+
+.modal-card-title {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+h1 {
+  display: flex;
+}
+
+.hs-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 15px;
+}
+
+.hs-header h2 {
+  font-weight: 800;
+}
+
+.hs-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.hs-entry h2 {
+  font-size: 1.25em;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-button {
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--custom-font);
+  padding: 0px 20px;
+}
+
+.logout-button {
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: var(--custom-font);
+  font-weight: 700;
+  padding: 0px 0px;
+}
+
+.modal-button {
+  background: transparent;
+  border: 0px solid black;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--custom-font);
+  padding: 0px 20px;
+}
+
+.modal-button:hover {
+  color: blue;
+}
+
+.logout-button:hover {
+  color: red;
 }

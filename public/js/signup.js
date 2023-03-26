@@ -1,10 +1,11 @@
 const signupFormHandler = async (event) => {
 	event.preventDefault();
 
-	const username = document.querySelector("#username").value.toLowerCase().trim();
+	const username = document.querySelector("#username").value.trim();
 	const password = document.querySelector("#password").value.trim();
+	const checked = document.querySelector("#checkbox").checked;
 
-	if (username && password) {
+	if (username && password && checked === true) {
 		console.log(username);
 		const response = await fetch("/api/users/signup", {
 			method: "POST",
@@ -23,8 +24,12 @@ const signupFormHandler = async (event) => {
 				"Password does not meet constraints (one uppercase letter, one lowercase letter, and one number)."
 			);
 		}
+	} else if (!checked) {
+		alert("You've gotta accept terms and conditions (make sure you've read them)!!");
 	} else {
-		alert("You've gotta enter a username and password!");
+		alert(
+			"You've gotta enter a username and password and accept the terms and conditions!!"
+		);
 	}
 };
 

@@ -4,7 +4,6 @@ const { User, MinesweeperHighscores } = require("../../models/index");
 // route for login creation
 router.post("/signup", async (req, res) => {
 	try {
-		console.log(req.body);
 		const { username, password } = req.body;
 
 		// validates that both username and password have been submitted
