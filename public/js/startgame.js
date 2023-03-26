@@ -4,6 +4,8 @@ const startBtn = document.getElementById('start-btn');
 const timerEl = document.getElementById('timer');
 const lostEl = document.getElementById("lost");
 const resetEl = document.getElementById("reset")
+const highscoreEL = document.getElementById("highscore")
+
 
   // To start the timer the user pushes the Start Game Button
   function startGame() {
@@ -60,14 +62,13 @@ function lostGame () {
 })
 }
 
-// to finish 
-// function wonGame() {
-//   clearInterval(timerInterval);
-//   isNotClickable()
-//   resetEl.classList.remove("is-hidden")
-//   const score = timeRemaining
-//   // button sto save highscore
-// }
+function wonGame() {
+  clearInterval(timerInterval);
+  isNotClickable()
+  resetEl.classList.remove("is-hidden")
+  const score = timeRemaining
+  highscoreEL.classList.remove("is-hidden")
+}
 
   function restartGame() {
     location.reload()
