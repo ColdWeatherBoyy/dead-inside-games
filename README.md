@@ -21,6 +21,8 @@ Download the repo. Be sure to run "npm i" to install the node modules necessary.
 
 You can also access the live application here: https://dead-inside-games.herokuapp.com/minesweeper
 
+![Alt text](public/images/Minsweeper.png)
+
 ## Usage
 Once you've started the server, navigate in a browser to http://localhost:3001/. You should be prompted to log in. If you have not signed up, do that first. You'll be required to enter a unique user name and password and accept the terms and conditions. Once complete, you can use this username and password to log in. 
 
@@ -48,4 +50,4 @@ Please reach out directly to any of the contributors or submit a pull request to
 N/A
 
 ## Questions
-Please contant one of the contributors listed above if there are questions. 
+Please contact one of the contributors listed above if there are questions. 
