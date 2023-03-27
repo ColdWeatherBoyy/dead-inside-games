@@ -1,33 +1,33 @@
 <button class="modal-button">Highscores</button>
 <div class="modal" id="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <h1 class="modal-card-title">HIGHSCORES</h1>
-      <button class="delete" aria-label="close" id="close-button"> &times; </button>
-    </header>
-    <section class="modal-card-body columns">
-      <div class="left column">
-        <div class="hs-header">
-          <h2>Name</h2>
-        </div>
-        {{#each highscores as |msHighscores|}}
-        <div class="hs-entry">
-          <h2>{{user.username}}</h2>
-        </div>
-        {{/each}}
-      </div>
+	<div class="modal-background" id="overlay"></div>
+	<div class="modal-card">
+		<header class="modal-card-head">
+			<h1 class="modal-card-title">HIGHSCORES</h1>
+			<button class="delete" aria-label="close" id="close-button"> &times; </button>
+		</header>
+		<section class="modal-card-body columns">
+			<div class="left column">
+				<div class="hs-header">
+					<h2>Name</h2>
+				</div>
+				{{#each highscores as |msHighscores|}}
+					<div class="hs-entry">
+						<h2>{{user.username}}</h2>
+					</div>
+				{{/each}}
+			</div>
 
-      <div class="right column">
-        <div class="hs-header">
-          <h2>Score</h2>
-        </div>
-        {{#each highscores as |msHighscores|}}
-        <div class="hs-entry">
-          <h2>{{score}}</h2>
-        </div>
-        {{/each}}
-      </div>
-    </section>
-  </div>
+			<div class="right column">
+				<div class="hs-header">
+					<h2>Score</h2>
+				</div>
+				{{#each highscores as |msHighscores|}}
+					<div class="hs-entry">
+						<h2>{{score}}</h2>
+					</div>
+				{{/each}}
+			</div>
+		</section>
+	</div>
 </div>
