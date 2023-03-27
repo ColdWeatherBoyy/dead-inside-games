@@ -1,65 +1,53 @@
-# <Your-Project-Title>
+# Dead Inside Games 
 
 ## Description
+Dead Insidge games is a repository of retro games. The primary game is Minesweeper. Future development will continue to expand into hangman, tik-tak-toe, tetris, and more. 
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+Walkthrough video: 
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
+## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Features](#features)
+- [How to Contribute](#how-to-contribute)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
+You will need node and MySQL installed on your machine to run the application locally. 
+Download the repo. Be sure to run "npm i" to install the node modules necessary. Intiallize the database by running "mysql -u root -p", entering your password, and then sourcing the schema.sql in the db folder. If you would like, run "npm build" to seed your database with data. Once complete, run "npm run dev" (uses nodemon) or "node server" to initilaze the server on your local host.
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+You can also access the live application here: https://dead-inside-games.herokuapp.com/minesweeper
+
+![Alt text](public/images/Minsweeper.png)
 
 ## Usage
+Once you've started the server, navigate in a browser to http://localhost:3001/. You should be prompted to log in. If you have not signed up, do that first. You'll be required to enter a unique user name and password and accept the terms and conditions. Once complete, you can use this username and password to log in. 
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![alt text](assets/images/screenshot.png)
+Upon log in, you'll be be redirected to the homepage that includes minesweeper. To begin playing, click the start button. A timer will begin a countdown from 120 seconds. To clear the board, you'll need to click on every tile that is not a mine. Once only the mines are left, you've won the game and you'll be given the opportunity to record your highscore, which is the amount of time you have remaining on the timer. Your username and the time left will be posted to the highscores page if you click "Save Highscore". If you hit a mine, you will lose the game. A button will appear allowing you to "Play Again". 
 
 ## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+Contributors include: 
+- https://github.com/ColdWeatherBoyy
+- https://github.com/ColinSprows
+- https://github.com/BobbyCharms
+- https://github.com/Dev-Devin
+- https://github.com/dmantilla17 
+- Special thank you to Max Oshawa for assisting the team in the game logic and the "reveal tiles" functionality. 
 
 ## License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-Badges aren't necessary, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+N/A
 
 ## Features
-
-If your project has a lot of features, list them here.
+Being able to play the retro game, Minesweeper!
 
 ## How to Contribute
-
-If you created an application or package and would like other developers to contribute to it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+Please reach out directly to any of the contributors or submit a pull request to th existing repo.        
 
 ## Tests
+N/A
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+## Questions
+Please contact one of the contributors listed above if there are questions. 
