@@ -43,32 +43,32 @@ highscoreEL.addEventListener("click", async () => {
 	}
 });
 
-async function updateHighscores() {
-	try {
-		const highscoreData = await MinesweeperHighscores.findAll({
-			attributes: ["score", "created_at", "user_id"],
-			include: [
-				{
-					model: User,
-					attributes: ["username"],
-				},
-			],
-			order: [["score", "DESC"]],
-			limit: 10,
-		});
+// async function updateHighscores() {
+// 	try {
+// 		const highscoreData = await MinesweeperHighscores.findAll({
+// 			attributes: ["score", "created_at", "user_id"],
+// 			include: [
+// 				{
+// 					model: User,
+// 					attributes: ["username"],
+// 				},
+// 			],
+// 			order: [["score", "DESC"]],
+// 			limit: 10,
+// 		});
 
-		const username = req.session.username;
+// 		const username = req.session.username;
 
-		// grabs the data values only
-		const highscores = highscoreData.map((highscore) => highscore.get({ plain: true }));
+// 		// grabs the data values only
+// 		const highscores = highscoreData.map((highscore) => highscore.get({ plain: true }));
 
-		res.render("minesweeperhighscores", {
-			highscores,
-			username: username,
-			placeholderImage,
-			loggedIn: req.session.loggedIn,
-		});
-	} catch (err) {
-		console.lerror("Error:", err);
-	}
-}
+// 		res.render("minesweeperhighscores", {
+// 			highscores,
+// 			username: username,
+// 			placeholderImage,
+// 			loggedIn: req.session.loggedIn,
+// 		});
+// 	} catch (err) {
+// 		console.lerror("Error:", err);
+// 	}
+// }
