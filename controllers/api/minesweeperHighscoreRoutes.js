@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User, MinesweeperHighscores } = require("../../models/index.js");
 
-
 router.post("/", async (req, res) => {
 	try {
 		const user_id = req.session.user_id;
@@ -35,6 +34,7 @@ router.get("/", async (req, res) => {
 				},
 			],
 			order: [["score", "DESC"]],
+			limit: 10,
 		});
 
 		res.status(200).json(highscoreData);
