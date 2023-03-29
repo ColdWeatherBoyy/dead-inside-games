@@ -23,7 +23,7 @@ const highscoreEL = document.getElementById("highscore")
         timeRemaining--;
         timerEl.textContent = "Time Left" + " "+ timeRemaining;
         if (timeRemaining === 0) {
-        endGame()
+        lostGame();
         }
   }, 1000);
 }
