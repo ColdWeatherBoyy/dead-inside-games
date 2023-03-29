@@ -67,7 +67,7 @@ function isNotClickable() {
 // For later - change # of mines to be dynamic
 // let bombArray = tiles.filter(tile => tile.mine);
 
-const numberOfMines = 10;
+const numberOfMines = 1;
 const mineSet = new Set();
 
 while (mineSet.size < numberOfMines) {
